@@ -2,7 +2,7 @@
 * @Author: alkun
 * @Date:   2019-05-28 22:21:30
 * @Last Modified by:   alkun
-* @Last Modified time: 2019-06-14 09:55:51
+* @Last Modified time: 2019-06-17 10:45:47
 */
 
 'use strict';
@@ -88,5 +88,6 @@ module.exports = {
         //     hash: true
         // }),
         new webpack.HotModuleReplacementPlugin()
-    ].concat(htmlWebpackPlugins)
+    ].concat(htmlWebpackPlugins),
+    devtool: 'source-map'
 }
