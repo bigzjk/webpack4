@@ -2,7 +2,7 @@
 * @Author: alkun
 * @Date:   2019-05-28 22:21:30
 * @Last Modified by:   alkun
-* @Last Modified time: 2019-06-17 10:45:47
+* @Last Modified time: 2019-06-20 23:10:21
 */
 
 'use strict';
@@ -56,7 +56,7 @@ module.exports = {
     mode: 'development',
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
-        port: 3001,
+        port: 3000,
         host: 'localhost',
         overlay: true,
         // compress: true,
