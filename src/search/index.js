@@ -6,9 +6,13 @@ export class Search extends React.Component {
     render(){
         return( 
             <div className="search">
-                e2113131
-                <p>
-                    hello webpacka
+                react
+                <p
+                    onClick={()=>{
+                        location.href = './index.html'
+                    }}
+                >
+                    goback Index
                     
                 </p>
             </div>
