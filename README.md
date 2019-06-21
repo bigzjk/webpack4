@@ -3,6 +3,6 @@
 ```js
 启动项目
 $ yarn || $ npm i
-开发环境：$ yarn run dev && $ npm run dev
-生产环境：$ yarn run build && $ npm run dev
+开发环境：$ yarn run dev || $ npm run dev
+生产环境：$ yarn run build || $ npm run dev
 ```
