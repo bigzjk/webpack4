@@ -1,7 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import './index.scss'
+
 export class Search extends React.Component {
+    constructor() {
+        super()
+        this.state={
+            Text: null
+        }
+    }
 
     render(){
         return( 
@@ -15,6 +22,24 @@ export class Search extends React.Component {
                     goback Index
                     
                 </p>
+                <div
+                    style={{
+                        display: 'block',
+                        width: '200px',
+                        height: '200px',
+                        background: 'red'
+                    }}
+                    onClick={() => {
+                        import('./test.js').then((Text) => {
+                            console.log(Text.default)
+                            this.setState({
+                                Text: Text.default
+                            })
+                        })
+                        
+                    }}
+                >click</div>
+                {this.state.Text ? <this.state.Text /> : null}
             </div>
         )
     }
