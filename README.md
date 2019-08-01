@@ -6,3 +6,4 @@ $ yarn || $ npm i
 开发环境：$ yarn run dev || $ npm run dev
 生产环境：$ yarn run build || $ npm run dev
 ```
+`plugin-syntax-dynamic-import` 实现按需import
