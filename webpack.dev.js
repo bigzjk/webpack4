@@ -9,6 +9,7 @@
 const path = require('path')
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FriendLyErrorsWebpackPlugin =  require('friendly-errors-webpack-plugin')
 const glob = require('glob')
 // 动态设置entey
 const setMap = function(){
@@ -60,7 +61,8 @@ module.exports = {
         host: 'localhost',
         overlay: true,
         // compress: true,
-        hot: true
+        hot: true,
+        stats: 'errors-only' // 构建日志
     },
     module: {
         rules: [
@@ -87,7 +89,8 @@ module.exports = {
         //     filename: 'index.html',
         //     hash: true
         // }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new FriendLyErrorsWebpackPlugin()
     ].concat(htmlWebpackPlugins),
     devtool: 'source-map'
 }

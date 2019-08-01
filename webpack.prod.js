@@ -17,6 +17,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 // 编译前清除打包的目录
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const FriendLyErrorsWebpackPlugin= require('friendly-errors-webpack-plugin')
 // 动态设置entey
 const setMap = function(){
     let entry = {};
@@ -112,6 +113,16 @@ module.exports = {
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano')
         }),
-        new CleanWebpackPlugin()
-    ].concat(htmlWebpackPlugins)
+        new CleanWebpackPlugin(),
+        new FriendLyErrorsWebpackPlugin(),
+        function() { // 构建异常捕获。中断
+            this.hooks.done.tap('done', (stats) => {
+                if(stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1){
+                    console.log('build err0r')
+                    process.exit(1)
+                }
+            })
+        }
+    ].concat(htmlWebpackPlugins),
+    stats: 'errors-only'
 }
